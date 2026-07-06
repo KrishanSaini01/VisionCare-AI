@@ -1,0 +1,27 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+Flask-WTF
+Werkzeug
+
+tensorflow
+keras
+numpy
+pandas
+opencv-python
+Pillow
+scikit-learn
+matplotlib
+
+google-generativeai
+
+SQLAlchemy
+
+# PostgreSQL → psycopg2-binary
+# MySQL → PyMySQL
+
+reportlab
+
+python-dotenv
+requests
+gunicorn
