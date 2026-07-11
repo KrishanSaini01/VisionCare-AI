@@ -402,7 +402,6 @@ This project demonstrates practical implementation of:
 # 👨‍💻 Developed By
 
 **Krishan Kumar Saini**
-
 Bachelor of Technology (Computer Science Engineering)
 
 Final Year Project
