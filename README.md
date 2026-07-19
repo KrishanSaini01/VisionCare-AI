@@ -6,7 +6,7 @@
 ![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-CNN-orange)
 ![Gemini](https://img.shields.io/badge/Generative%20AI-Gemini-blueviolet)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+![MYSQL](https://img.shields.io/badge/MYSQL-Database-blue)
 ![HTML](https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JS-green)
 
 ---
@@ -52,6 +52,7 @@ The system securely stores users, uploaded images, prediction history, reports, 
 Supports medical images such as:
 
 - Chest X-rays
+
 - Brain MRI
 - CT Scan
 - Skin Lesion Images
@@ -140,7 +141,7 @@ Stores
                     User
                       │
                       ▼
-        HTML + CSS + JavaScript
+            HTML + CSS + JavaScript
                       │
                       ▼
                 Flask Backend
@@ -148,7 +149,7 @@ Stores
       ┌───────────────┼────────────────┐
       │               │                │
       ▼               ▼                ▼
- CNN Deep Learning   PostgreSQL     Gemini API
+ CNN Deep Learning   MYSQL     Gemini API
       │               │                │
       └───────────────┼────────────────┘
                       ▼
@@ -300,7 +301,7 @@ Functions
 
 ## Database
 
-- PostgreSQL
+- MYSQL
 
 ## ORM
 

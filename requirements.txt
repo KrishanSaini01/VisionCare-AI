@@ -1,27 +1,24 @@
-Flask
-Flask-SQLAlchemy
-Flask-Login
-Flask-WTF
-Werkzeug
-
-tensorflow
-keras
+os
 numpy
 pandas
-opencv-python
-Pillow
 scikit-learn
 matplotlib
 
-google-generativeai
-
-SQLAlchemy
-
-# PostgreSQL → psycopg2-binary
-# MySQL → PyMySQL
-
-reportlab
-
+flask 
+flask_sqlalchemy 
+flask_login 
+flask_bcrypt 
+pymysql 
 python-dotenv
+Flask-WTF
+
+google-generativeai 
+reportlab 
+pillow
+
+opencv-python
+tensorflow
+keras
+
 requests
 gunicorn
