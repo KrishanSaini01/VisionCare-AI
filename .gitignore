@@ -1,3 +1,36 @@
-.env
+# Python
 __pycache__/
-database/__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment Variables
+.env
+
+.ipynb_checkpoints/
+
+.vscode/
+
+# Uploaded Images
+uploads/*
+
+# Generated Reports
+reports/*
+
+# Model Files (if too large)
+# Uncomment if you don't want to upload the trained model
+# model/cnn_model.keras
+
+# Dataset
+dataset/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
