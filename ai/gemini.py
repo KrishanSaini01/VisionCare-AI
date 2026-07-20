@@ -7,6 +7,20 @@ import time
 client = genai.Client(api_key=Config.GEMINI_API_KEY)
 
 
+def generate_ai_response(question):
+
+    response = client.models.generate_content(
+
+        model="gemini-flash-latest",
+
+        contents=question
+
+    )
+
+    return response.text
+
+
+
 def generate_ai_report(disease, confidence):
 
     prompt = generate_prompt(disease, confidence)

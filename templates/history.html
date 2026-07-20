@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}
+Prediction History
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2 class="mb-4">
+
+        <i class="bi bi-clock-history"></i>
+
+        Prediction History
+
+    </h2>
+
+    {% if predictions %}
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>Image</th>
+                    <th>Disease</th>
+                    <th>Confidence</th>
+                    <th>Date</th>
+                    <th>View</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for prediction in predictions %}
+
+                <tr>
+
+                    <td>
+
+                        <img
+                            src="{{ url_for('static', filename='uploads/' + prediction.image_path) }}"
+                            width="80"
+                            class="rounded">
+
+                    </td>
+
+                    <td>
+
+                        {{ prediction.disease_name }}
+
+                    </td>
+
+                    <td>
+
+                        {{ prediction.confidence_score }}%
+
+                    </td>
+
+                    <td>
+
+                        {{ prediction.prediction_date.strftime('%d-%m-%Y %H:%M') }}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('prediction.view_prediction', prediction_id=prediction.prediction_id) }}"
+                            class="btn btn-primary btn-sm">
+
+                            View
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <div class="alert alert-info text-center">
+
+        <h4>No Prediction History</h4>
+
+        <p>
+
+            Upload your first chest X-ray image to see history.
+
+        </p>
+
+        <a
+            href="{{ url_for('prediction.upload') }}"
+            class="btn btn-primary">
+
+            Upload Image
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

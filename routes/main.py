@@ -22,15 +22,25 @@ def dashboard():
     ).all()
 
     total_predictions = len(predictions)
+
     total_uploads = len(predictions)
-    total_reports = len(predictions)
+
+    total_reports = len(
+        [p for p in predictions if p.report_path]
+    )
+
     total_chats = 0
 
     return render_template(
         "dashboard.html",
+
         predictions=predictions,
-        total_predictions=total_predictions,
+
         total_uploads=total_uploads,
+
+        total_predictions=total_predictions,
+
         total_reports=total_reports,
+
         total_chats=total_chats
     )

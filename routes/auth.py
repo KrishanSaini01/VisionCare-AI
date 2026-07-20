@@ -102,6 +102,11 @@ def logout():
 
     logout_user()
 
-    flash("Logged out successfully.", "success")
+    flash(
+        "Logged out successfully.",
+        "success"
+    )
 
-    return redirect(url_for("main.home"))
+    return redirect(
+        url_for("main.home")
+    )

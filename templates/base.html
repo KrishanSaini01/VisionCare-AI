@@ -4,212 +4,317 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>
-        {% block title %}VisionCare AI{% endblock %}
+
+        {% block title %}
+
+        VisionCare AI
+
+        {% endblock %}
+
     </title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
+
+    <link
+        rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet"
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
         href="{{ url_for('static', filename='css/style.css') }}">
 
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="{{ url_for('static', filename='css/prediction.css') }}">
 
-    <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/chat.css') }}">   
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/chat.css') }}">
 
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="{{ url_for('static', filename='css/report.css') }}">
 
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="{{ url_for('static', filename='css/history.css') }}">
 
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="{{ url_for('static', filename='css/profile.css') }}">
 
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="{{ url_for('static', filename='css/about.css') }}">
 
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="{{ url_for('static', filename='css/contact.css') }}">
 
 </head>
 
 <body>
 
-    <!-- Navbar -->
+<!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
 
-        <div class="container">
+    <div class="container">
 
-            <a class="navbar-brand fw-bold"
-                href="{{ url_for('main.home') }}">
+        <a
+            class="navbar-brand fw-bold"
+            href="{{ url_for('main.home') }}">
 
-                <i class="bi bi-heart-pulse-fill"></i>
+            <i class="bi bi-heart-pulse-fill text-danger"></i>
 
-                VisionCare AI
+            VisionCare AI
 
-            </a>
+        </a>
 
-            <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
 
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
 
-            </button>
+        </button>
 
-            <div class="collapse navbar-collapse"
-                id="navbarNav">
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNav">
 
-                <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto">
 
-                    <li class="nav-item">
+                <li class="nav-item">
 
-                        <a class="nav-link"
-                            href="{{ url_for('main.home') }}">
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('main.home') }}">
 
-                            <i class="bi bi-house"></i>
+                        <i class="bi bi-house"></i>
 
-                            Home
+                        Home
 
-                        </a>
+                    </a>
 
-                    </li>
+                </li>
 
-        <li class="nav-item">
+                {% if current_user.is_authenticated %}
 
-        <a class="nav-link"
-          
-            href="{{ url_for('main.dashboard') }}">
+                <li class="nav-item">
 
-                <i class="bi bi-speedometer2"></i>
-                 Dashboard
-           </a>
-        </li>
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('main.dashboard') }}">
 
-                    <li class="nav-item">
+                        <i class="bi bi-speedometer2"></i>
 
-                        <a class="nav-link"
-                            href="{{ url_for('auth.register') }}">
+                        Dashboard
 
-                            <i class="bi bi-person-plus"></i>
+                    </a>
 
-                            Register
+                </li>
 
-                        </a>
+                <li class="nav-item">
 
-                    </li>
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('prediction.upload') }}">
 
-                    <li class="nav-item">
+                        <i class="bi bi-cloud-upload"></i>
 
-                        <a class="nav-link"
-                            href="{{ url_for('auth.login') }}">
+                        Upload
 
-                            <i class="bi bi-box-arrow-in-right"></i>
+                    </a>
 
-                            Login
+                </li>
 
-                        </a>
+                <li class="nav-item">
 
-                    </li>
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('history.history_page') }}">
 
-                </ul>
+                        <i class="bi bi-clock-history"></i>
 
-            </div>
+                        History
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('chat.medical_chat') }}">
+
+                        <i class="bi bi-robot"></i>
+
+                        AI Chat
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link text-danger"
+                        href="{{ url_for('auth.logout') }}">
+
+                        <i class="bi bi-box-arrow-right"></i>
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+                {% else %}
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('auth.register') }}">
+
+                        <i class="bi bi-person-plus"></i>
+
+                        Register
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('auth.login') }}">
+
+                        <i class="bi bi-box-arrow-in-right"></i>
+
+                        Login
+
+                    </a>
+
+                </li>
+
+                {% endif %}
+
+            </ul>
 
         </div>
-
-    </nav>
-
-    <!-- Flash Messages -->
-
-    <div class="container mt-3">
-
-        {% with messages = get_flashed_messages(with_categories=true) %}
-
-        {% if messages %}
-
-        {% for category,message in messages %}
-
-        <div class="alert alert-{{ category }} alert-dismissible fade show">
-
-            {{ message }}
-
-            <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert">
-            </button>
-
-        </div>
-
-        {% endfor %}
-
-        {% endif %}
-
-        {% endwith %}
 
     </div>
 
-    <!-- Main Content -->
+</nav>
 
-    <div class="container py-5">
+<!-- ================= FLASH ================= -->
 
-        {% block content %}
+<div class="container mt-3">
 
-        {% endblock %}
+    {% with messages=get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+    {% for category,message in messages %}
+
+    <div class="alert alert-{{ category }} alert-dismissible fade show">
+
+        {{ message }}
+
+        <button
+            class="btn-close"
+            data-bs-dismiss="alert">
+
+        </button>
 
     </div>
 
-    <!-- Footer -->
+    {% endfor %}
 
-    <footer class="footer">
+    {% endif %}
 
-        <div class="container text-center">
+    {% endwith %}
 
-            <h5>VisionCare AI</h5>
+</div>
 
-            <p>
+<!-- ================= CONTENT ================= -->
 
-                AI Powered Medical Image Analysis Platform
+<div class="container py-5">
 
-            </p>
+    {% block content %}
 
-            <small>
+    {% endblock %}
 
-                Developed using Flask • TensorFlow • Gemini AI • MySQL
+</div>
 
-            </small>
+<!-- ================= FOOTER ================= -->
 
-            <br><br>
+<footer class="bg-dark text-light py-4 mt-5">
 
-            <small>
+    <div class="container text-center">
 
-                © 2026 VisionCare AI. All Rights Reserved.
+        <h4>
 
-            </small>
+            VisionCare AI
 
-        </div>
+        </h4>
 
-    </footer>
+        <p>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+            AI Powered Medical Image Analysis Platform
 
-    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+        </p>
 
-    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+        <small>
+
+            Flask • TensorFlow • Gemini AI • MySQL
+
+        </small>
+
+        <br><br>
+
+        <small>
+
+            © 2026 VisionCare AI. All Rights Reserved.
+
+        </small>
+
+    </div>
+
+</footer>
+
+<!-- Bootstrap JS -->
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script
+src="{{ url_for('static', filename='js/upload.js') }}">
+</script>
+
+<script
+src="{{ url_for('static', filename='js/chat.js') }}">
+</script>
 
 </body>
 

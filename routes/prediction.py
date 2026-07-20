@@ -3,6 +3,10 @@ from model.predict import predict_image
 from ai.gemini import generate_ai_report
 from ai.fallback import fallback_report
 
+from reports.pdf_generator import generate_pdf
+
+from flask import send_file
+
 
 from flask import (
     Blueprint,
@@ -142,6 +146,11 @@ def upload():
         db.session.add(new_prediction)
 
         db.session.commit()
+        
+        
+        pdf_path = generate_pdf(new_prediction)
+        new_prediction.report_path = pdf_path
+        db.session.commit()
 
         flash(
             "Prediction completed successfully.",
@@ -171,4 +180,19 @@ def view_prediction(prediction_id):
     return render_template(
         "prediction.html",
         prediction=prediction_data
+    )
+    
+    
+@prediction.route("/download/<int:prediction_id>")
+@login_required
+def download_report(prediction_id):
+
+    prediction_data = Prediction.query.filter_by(
+        prediction_id=prediction_id,
+        user_id=current_user.id
+    ).first_or_404()
+
+    return send_file(
+        prediction_data.report_path,
+        as_attachment=True
     )
