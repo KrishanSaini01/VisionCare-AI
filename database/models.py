@@ -47,6 +47,16 @@ class Prediction(db.Model):
         db.Float,
         nullable=False
     )
+    
+    ai_summary = db.Column(
+    db.Text,
+    nullable=True
+    )
+
+    precautions = db.Column(
+        db.Text,
+        nullable=True
+    )
 
     prediction_date = db.Column(
         db.DateTime,
@@ -66,5 +76,8 @@ class Prediction(db.Model):
 
     precautions = db.Column(db.Text)
     
+    
+    
     def __repr__(self):
         return f"<Prediction {self.prediction_id} - {self.disease_name}>"
+    

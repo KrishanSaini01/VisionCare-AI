@@ -9,6 +9,13 @@ from extensions import db
 from extensions import bcrypt
 from database.models import User
 
+from flask_login import login_user, logout_user
+from werkzeug.security import check_password_hash
+# OR use bcrypt.check_password_hash() as shown below
+
+from flask_login import login_user, logout_user, login_required
+
+
 from flask_bcrypt import generate_password_hash
 
 auth = Blueprint("auth", __name__)
@@ -59,13 +66,42 @@ def register():
     return render_template("register.html")
 
 
-@auth.route("/login")
+@auth.route("/login", methods=["GET", "POST"])
 def login():
+
+    if request.method == "POST":
+
+        email = request.form["email"]
+
+        password = request.form["password"]
+
+        user = User.query.filter_by(email=email).first()
+
+        if user and bcrypt.check_password_hash(user.password, password):
+
+            login_user(user)
+
+            flash("Login Successful", "success")
+
+            return redirect(url_for("main.dashboard"))
+
+        else:
+
+            flash("Invalid Email or Password", "danger")
+
+            return redirect(url_for("auth.login"))
 
     return render_template("login.html")
 
 
+from flask_login import login_required
+
 @auth.route("/logout")
+@login_required
 def logout():
 
-    return "Logout"
+    logout_user()
+
+    flash("Logged out successfully.", "success")
+
+    return redirect(url_for("main.home"))
