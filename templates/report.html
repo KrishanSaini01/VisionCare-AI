@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block title %}
+Medical Report
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card shadow-lg">
+
+        <div class="card-header bg-danger text-white">
+
+            <h3>
+
+                <i class="bi bi-file-earmark-medical-fill"></i>
+
+                Medical Analysis Report
+
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <!-- Patient Information -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+
+                    <h5>Patient Information</h5>
+
+                    <table class="table">
+
+                        <tr>
+
+                            <th>Name</th>
+
+                            <td>{{ current_user.name if current_user.is_authenticated else "Guest" }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Email</th>
+
+                            <td>{{ current_user.email if current_user.is_authenticated else "-" }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Report Date</th>
+
+                            <td>{{ prediction.prediction_date if prediction else "-" }}</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="col-md-6 text-center">
+
+                    {% if prediction %}
+
+                    <img src="{{ url_for('static', filename='uploads/' + prediction.image_path) }}"
+                         class="img-fluid rounded shadow report-image">
+
+                    {% else %}
+
+                    <img src="{{ url_for('static', filename='images/upload.png') }}"
+                         class="img-fluid report-image">
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <!-- Prediction -->
+
+            <h4 class="text-primary">
+
+                Prediction Result
+
+            </h4>
+
+            <table class="table table-bordered">
+
+                <tr>
+
+                    <th>Disease</th>
+
+                    <td>{{ prediction.disease_name if prediction else "Not Available" }}</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Confidence</th>
+
+                    <td>{{ prediction.confidence_score if prediction else 0 }}%</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Model</th>
+
+                    <td>CNN Deep Learning</td>
+
+                </tr>
+
+            </table>
+
+            <hr>
+
+            <!-- AI Summary -->
+
+            <h4 class="text-success">
+
+                AI Medical Explanation
+
+            </h4>
+
+            <div class="alert alert-light">
+
+                {{ prediction.ai_summary if prediction else "AI explanation will appear here." }}
+
+            </div>
+
+            <hr>
+
+            <!-- Precautions -->
+
+            <h4 class="text-warning">
+
+                Recommended Precautions
+
+            </h4>
+
+            <ul>
+
+                {% if prediction and prediction.precautions %}
+
+                    {% for item in prediction.precautions %}
+
+                        <li>{{ item }}</li>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <li>No recommendations available.</li>
+
+                {% endif %}
+
+            </ul>
+
+            <hr>
+
+            <!-- Disclaimer -->
+
+            <div class="alert alert-danger">
+
+                <strong>Medical Disclaimer:</strong>
+
+                This report is AI-generated and is intended only to assist healthcare professionals.
+                It should not be considered a final medical diagnosis.
+                Please consult a qualified doctor for confirmation and treatment.
+
+            </div>
+
+            <div class="text-center mt-4">
+
+                <a href="#" class="btn btn-danger">
+
+                    <i class="bi bi-file-earmark-pdf-fill"></i>
+
+                    Download PDF
+
+                </a>
+
+                <a href="{{ url_for('chat.medical_chat') }}"
+                   class="btn btn-success">
+
+                    <i class="bi bi-robot"></i>
+
+                    Ask Gemini
+
+                </a>
+
+                <button onclick="window.print()"
+                        class="btn btn-primary">
+
+                    <i class="bi bi-printer-fill"></i>
+
+                    Print
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+.history-image{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+.progress{
+
+    height:25px;
+
+}
+
+.table td{
+
+    vertical-align:middle;
+
+}
+
+.table{
+
+    border-radius:15px;
+
+}

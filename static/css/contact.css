@@ -1,0 +1,19 @@
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+}
+
+textarea{
+
+    resize:none;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+}

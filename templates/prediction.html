@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}
+Prediction Result
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row">
+
+        <!-- Uploaded Image -->
+
+        <div class="col-lg-5 mb-4">
+
+            <div class="card shadow border-0 h-100">
+
+                <div class="card-header bg-primary text-white">
+
+                    <h4>
+
+                        <i class="bi bi-image-fill"></i>
+
+                        Uploaded Chest X-ray
+
+                    </h4>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    {% if prediction %}
+
+                    <img
+                        src="{{ url_for('static', filename='uploads/' + prediction.image_path) }}"
+                        class="img-fluid rounded shadow"
+                        style="max-height:450px; object-fit:contain;">
+
+                    {% else %}
+
+                    <img
+                        src="{{ url_for('static', filename='images/upload.png') }}"
+                        class="img-fluid"
+                        style="max-height:350px;">
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Prediction Details -->
+
+        <div class="col-lg-7">
+
+            <div class="card shadow border-0 h-100">
+
+                <div class="card-header bg-success text-white">
+
+                    <h4>
+
+                        <i class="bi bi-cpu-fill"></i>
+
+                        AI Prediction
+
+                    </h4>
+
+                </div>
+
+                <div class="card-body">
+
+                    <!-- Disease -->
+
+                    <h5>Disease Detected</h5>
+
+                    {% if prediction %}
+
+                        {% if prediction.disease_name == "PNEUMONIA" %}
+
+                        <span class="badge bg-danger fs-5 px-4 py-2">
+
+                            {{ prediction.disease_name }}
+
+                        </span>
+
+                        {% else %}
+
+                        <span class="badge bg-success fs-5 px-4 py-2">
+
+                            {{ prediction.disease_name }}
+
+                        </span>
+
+                        {% endif %}
+
+                    {% else %}
+
+                        <span class="badge bg-secondary">
+
+                            No Prediction
+
+                        </span>
+
+                    {% endif %}
+
+                    <hr>
+
+                    <!-- Confidence -->
+
+                    <h5>
+
+                        Confidence Score
+
+                    </h5>
+
+                    <div class="progress mb-3" style="height:30px;">
+
+                        <div
+                            class="progress-bar progress-bar-striped progress-bar-animated
+                            {% if prediction and prediction.disease_name == 'PNEUMONIA' %}
+                            bg-danger
+                            {% else %}
+                            bg-success
+                            {% endif %}"
+
+                            style="width: {{ prediction.confidence_score if prediction else 0 }}%;">
+
+                            {{ prediction.confidence_score if prediction else 0 }} %
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <!-- AI Explanation -->
+
+                    <h5>
+
+                        <i class="bi bi-robot"></i>
+
+                        AI Explanation
+
+                    </h5>
+
+                    <div class="alert alert-info">
+
+                        {% if prediction and prediction.ai_summary %}
+
+                            {{ prediction.ai_summary }}
+
+                        {% else %}
+
+                            AI explanation will appear here.
+
+                        {% endif %}
+
+                    </div>
+
+                    <hr>
+
+                    <!-- Precautions -->
+
+                    <h5>
+
+                        <i class="bi bi-shield-check"></i>
+
+                        General Precautions
+
+                    </h5>
+
+                    <div class="alert alert-warning">
+
+                        {% if prediction and prediction.precautions %}
+
+                            {{ prediction.precautions }}
+
+                        {% else %}
+
+                            Please consult a qualified doctor for proper diagnosis and treatment.
+
+                        {% endif %}
+
+                    </div>
+
+                    <hr>
+
+                    <!-- Prediction Date -->
+
+                    {% if prediction %}
+
+                    <h6>
+
+                        <i class="bi bi-calendar-event"></i>
+
+                        Prediction Date
+
+                    </h6>
+
+                    <p>
+
+                        {{ prediction.prediction_date.strftime('%d %B %Y %I:%M %p') }}
+
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="text-center mt-5">
+
+        <a href="{{ url_for('prediction.upload') }}"
+           class="btn btn-primary btn-lg me-2">
+
+            <i class="bi bi-upload"></i>
+
+            Upload Another
+
+        </a>
+
+        <a href="{{ url_for('history.history_page') }}"
+           class="btn btn-secondary btn-lg me-2">
+
+            <i class="bi bi-clock-history"></i>
+
+            Prediction History
+
+        </a>
+
+        <a href="{{ url_for('chat.medical_chat') }}"
+           class="btn btn-success btn-lg me-2">
+
+            <i class="bi bi-robot"></i>
+
+            Ask AI
+
+        </a>
+
+        <a href="#"
+           class="btn btn-danger btn-lg">
+
+            <i class="bi bi-file-earmark-pdf-fill"></i>
+
+            Download PDF
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

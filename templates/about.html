@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero -->
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold text-primary">
+
+            About VisionCare AI
+
+        </h1>
+
+        <p class="lead text-muted">
+
+            Intelligent Medical Image Analysis Platform powered by Deep Learning and Generative AI.
+
+        </p>
+
+    </div>
+
+    <!-- About -->
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-6">
+
+            <img
+                src="{{ url_for('static', filename='images/about.png') }}"
+                class="img-fluid rounded shadow">
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <h3>
+
+                Our Mission
+
+            </h3>
+
+            <p>
+
+                VisionCare AI helps healthcare professionals and patients by analyzing
+                medical images using Deep Learning. The platform predicts diseases
+                from medical images and provides AI-generated explanations using
+                Google's Gemini AI.
+
+            </p>
+
+            <p>
+
+                The goal is to improve early disease detection while making medical
+                reports easier to understand.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Features -->
+
+    <h2 class="text-center mb-4">
+
+        Key Features
+
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+
+            <div class="card h-100 shadow">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-cpu display-4 text-primary"></i>
+
+                    <h4 class="mt-3">
+
+                        CNN Prediction
+
+                    </h4>
+
+                    <p>
+
+                        Detect diseases from Chest X-rays using a trained CNN model.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card h-100 shadow">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-robot display-4 text-success"></i>
+
+                    <h4 class="mt-3">
+
+                        Gemini AI
+
+                    </h4>
+
+                    <p>
+
+                        Get medical explanations, precautions and answers through AI.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card h-100 shadow">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-file-earmark-medical display-4 text-danger"></i>
+
+                    <h4 class="mt-3">
+
+                        Medical Reports
+
+                    </h4>
+
+                    <p>
+
+                        Generate professional medical reports with confidence scores.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Tech Stack -->
+
+    <h2 class="text-center mb-4">
+
+        Technology Stack
+
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <ul class="list-group">
+
+                <li class="list-group-item">Python</li>
+
+                <li class="list-group-item">Flask</li>
+
+                <li class="list-group-item">TensorFlow / Keras</li>
+
+                <li class="list-group-item">OpenCV</li>
+
+                <li class="list-group-item">MySQL</li>
+
+            </ul>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <ul class="list-group">
+
+                <li class="list-group-item">Google Gemini AI</li>
+
+                <li class="list-group-item">Bootstrap 5</li>
+
+                <li class="list-group-item">HTML5</li>
+
+                <li class="list-group-item">CSS3</li>
+
+                <li class="list-group-item">JavaScript</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

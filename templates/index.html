@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+
+    <i class="bi bi-heart-pulse-fill text-primary hero-icon"></i>
+
+    <h1 class="display-4 fw-bold mt-4">
+
+        VisionCare AI
+
+    </h1>
+
+    <p class="lead">
+
+        Intelligent Medical Image Analysis Platform
+
+    </p>
+
+    <p class="text-muted">
+
+        Analyze Chest X-rays, MRI, CT Scan and Skin Images
+        using Deep Learning and Generative AI.
+
+    </p>
+
+    <a href="{{ url_for('auth.register') }}"
+        class="btn btn-primary btn-lg mt-3">
+
+        Get Started
+
+    </a>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row text-center">
+
+    <div class="col-md-4">
+
+        <i class="bi bi-cloud-upload feature-icon"></i>
+
+        <h4>Upload Images</h4>
+
+        <p>
+
+            Upload medical images securely.
+
+        </p>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <i class="bi bi-cpu feature-icon"></i>
+
+        <h4>AI Prediction</h4>
+
+        <p>
+
+            CNN model predicts disease with confidence score.
+
+        </p>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <i class="bi bi-robot feature-icon"></i>
+
+        <h4>Gemini AI</h4>
+
+        <p>
+
+            AI explains prediction in simple language.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,204 @@
+body{
+    background:#F5F9FF;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+
+.navbar{
+    background:#0D6EFD;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.navbar-brand{
+    font-size:24px;
+}
+
+.nav-link{
+    color:white !important;
+    margin-left:10px;
+}
+
+/* Hero */
+
+.hero-icon{
+    font-size:90px;
+}
+
+.feature-icon{
+    font-size:55px;
+    color:#0D6EFD;
+    margin-bottom:15px;
+}
+
+.register-icon{
+    font-size:70px;
+}
+
+/* Cards */
+
+.card{
+    border:none;
+    border-radius:20px;
+}
+
+/* Form */
+
+.form-control{
+    height:50px;
+    border-radius:10px;
+}
+
+.btn{
+    border-radius:10px;
+    height:50px;
+}
+
+/* Footer */
+
+.footer{
+
+    background:white;
+
+    margin-top:60px;
+
+    padding:30px;
+
+    box-shadow:0 -2px 10px rgba(0,0,0,.08);
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero-icon{
+
+font-size:70px;
+
+}
+
+.display-4{
+
+font-size:36px;
+
+}
+
+}
+
+/* Login Page */
+
+.login-icon{
+
+    font-size:70px;
+
+}
+
+.form-check-input{
+
+    cursor:pointer;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+a:hover{
+
+    text-decoration:underline;
+
+}
+
+.dashboard-header{
+
+    background:#0D6EFD;
+
+    color:white;
+
+    border-radius:20px;
+
+}
+
+.dashboard-card{
+
+    border:none;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.dashboard-icon{
+
+    font-size:50px;
+
+    margin-bottom:15px;
+
+}
+
+.dashboard-action{
+
+    border:none;
+
+    border-radius:20px;
+
+}
+
+.dashboard-action-icon{
+
+    font-size:70px;
+
+    color:#0D6EFD;
+
+}
+
+
+
+/*upload.css*/
+
+
+.upload-icon{
+
+    font-size:70px;
+
+    color:#0D6EFD;
+
+}
+
+.upload-box{
+
+    border:3px dashed #0D6EFD;
+
+    border-radius:20px;
+
+    padding:50px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.upload-box:hover{
+
+    background:#EDF5FF;
+
+}
+
+#preview{
+
+    border-radius:15px;
+
+}

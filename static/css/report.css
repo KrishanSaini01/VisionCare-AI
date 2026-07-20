@@ -1,0 +1,35 @@
+.report-image{
+
+    max-height:300px;
+
+    object-fit:contain;
+
+}
+
+.card{
+
+    border-radius:20px;
+
+}
+
+.table th{
+
+    width:180px;
+
+}
+
+.alert{
+
+    border-radius:15px;
+
+}
+
+@media print{
+
+    .btn{
+
+        display:none;
+
+    }
+
+}

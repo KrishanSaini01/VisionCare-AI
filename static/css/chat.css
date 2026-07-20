@@ -1,0 +1,51 @@
+.chat-box{
+
+    height:500px;
+
+    overflow-y:auto;
+
+    background:#F8FAFC;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.user-message{
+
+    background:#0D6EFD;
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:15px;
+
+    display:inline-block;
+
+    max-width:75%;
+
+}
+
+.ai-message{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    padding:12px 18px;
+
+    border-radius:15px;
+
+    display:inline-block;
+
+    max-width:75%;
+
+}
+
+.suggestion{
+
+    border-radius:25px;
+
+}

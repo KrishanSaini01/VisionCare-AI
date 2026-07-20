@@ -22,3 +22,7 @@ keras
 
 requests
 gunicorn
+
+flask-login 
+flask-bcrypt 
+email-validator
