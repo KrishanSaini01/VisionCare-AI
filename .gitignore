@@ -1,36 +1,85 @@
+# ==========================
 # Python
+# ==========================
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyd
 
+# ==========================
 # Virtual Environment
+# ==========================
 venv/
 env/
 .venv/
 
+# ==========================
 # Environment Variables
+# ==========================
 .env
 
+# ==========================
+# Jupyter
+# ==========================
 .ipynb_checkpoints/
 
+# ==========================
+# VS Code
+# ==========================
 .vscode/
 
-# Uploaded Images
-uploads/*
+# ==========================
+# Uploads
+# ==========================
+uploads/
+static/uploads/
 
-# Generated Reports
-reports/*
+# Keep folder structure
+!uploads/.gitkeep
+!static/uploads/.gitkeep
 
-# Model Files (if too large)
-# Uncomment if you don't want to upload the trained model
-# model/cnn_model.keras
+# ==========================
+# Reports
+# ==========================
+reports/
+!reports/.gitkeep
 
+# ==========================
 # Dataset
+# ==========================
 dataset/
 
+# ==========================
 # Logs
+# ==========================
 *.log
 
+# ==========================
 # OS Files
+# ==========================
 .DS_Store
 Thumbs.db
+
+# ==========================
+# Python Build
+# ==========================
+build/
+dist/
+*.egg-info/
+
+# ==========================
+# Cache
+# ==========================
+.pytest_cache/
+.mypy_cache/
+
+# ==========================
+# TensorBoard
+# ==========================
+logs/
+
+# ==========================
+# Model (Optional)
+# ==========================
+# Uncomment if model is too large (>100MB)
+# model/cnn_model.keras

@@ -3,7 +3,7 @@ from model.predict import predict_image
 from ai.gemini import generate_ai_report
 from ai.fallback import fallback_report
 
-from reports.pdf_generator import generate_pdf
+from utils.pdf_generator import generate_pdf
 
 from flask import send_file
 
