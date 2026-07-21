@@ -51,9 +51,7 @@ The system securely stores users, uploaded images, prediction history, reports, 
 
 Supports medical images such as:
 
-- Chest X-rays
-
-- Brain MRI Images
+- Chest X-rays Images
 
 ---
 
