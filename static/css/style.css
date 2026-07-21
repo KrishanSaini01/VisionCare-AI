@@ -1,204 +1,305 @@
-body{
-    background:#F5F9FF;
-    font-family:Arial, Helvetica, sans-serif;
+/* ===========================
+   Google Font
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-/* Navbar */
+body{
+    background:#f4f8fc;
+    color:#2d3436;
+}
+
+/* ===========================
+   Navbar
+=========================== */
 
 .navbar{
-    background:#0D6EFD;
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
+    background:linear-gradient(135deg,#0d6efd,#1b7bff);
+    backdrop-filter:blur(15px);
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    padding:12px 0;
 }
 
 .navbar-brand{
-    font-size:24px;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.navbar-brand i{
+    color:#ff4d4d;
 }
 
 .nav-link{
     color:white !important;
-    margin-left:10px;
+    margin-left:12px;
+    font-weight:500;
+    transition:.3s;
+    border-radius:8px;
+    padding:8px 14px !important;
 }
 
-/* Hero */
+.nav-link:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   Hero
+=========================== */
 
 .hero-icon{
-    font-size:90px;
+    font-size:100px;
+    color:#0d6efd;
 }
 
 .feature-icon{
-    font-size:55px;
-    color:#0D6EFD;
-    margin-bottom:15px;
+    font-size:60px;
+    color:#0d6efd;
+    margin-bottom:18px;
 }
 
 .register-icon{
-    font-size:70px;
+    font-size:75px;
+    color:#0d6efd;
 }
 
-/* Cards */
+.login-icon{
+    font-size:75px;
+    color:#0d6efd;
+}
+
+/* ===========================
+   Cards
+=========================== */
 
 .card{
     border:none;
+    border-radius:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.35s;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn{
+    border-radius:12px;
+    height:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#0d6efd;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#0b5ed7;
+    transform:translateY(-2px);
+}
+
+.btn-success:hover,
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-secondary:hover{
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   Forms
+=========================== */
+
+.form-control{
+    height:52px;
+    border-radius:12px;
+    border:1px solid #d8e3f2;
+    box-shadow:none;
+}
+
+.form-control:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 10px rgba(13,110,253,.2);
+}
+
+.form-check-input{
+    cursor:pointer;
+}
+
+/* ===========================
+   Dashboard
+=========================== */
+
+.dashboard-header{
+    background:linear-gradient(135deg,#0d6efd,#4d9cff);
+    color:white;
+    border-radius:22px;
+}
+
+.dashboard-card{
+    border-radius:22px;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-8px);
+}
+
+.dashboard-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.dashboard-action{
+    border-radius:22px;
+}
+
+.dashboard-action-icon{
+    font-size:70px;
+    color:#0d6efd;
+}
+
+/* ===========================
+   Upload
+=========================== */
+
+.upload-icon{
+    font-size:75px;
+    color:#0d6efd;
+}
+
+.upload-box{
+    border:3px dashed #0d6efd;
+    border-radius:22px;
+    padding:55px;
+    background:white;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.upload-box:hover{
+    background:#eef6ff;
+    transform:scale(1.01);
+}
+
+#preview{
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
+
+/* ===========================
+   Tables
+=========================== */
+
+.table{
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.table thead{
+    background:#0d6efd;
+    color:white;
+}
+
+.table-hover tbody tr:hover{
+    background:#eef5ff;
+}
+
+/* ===========================
+   Alerts
+=========================== */
+
+.alert{
+    border:none;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+/* ===========================
+   Links
+=========================== */
+
+a{
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer{
+    margin-top:70px;
+    background:#1b1f27;
+    color:white;
+    padding:40px 20px;
+}
+
+.footer h4{
+    font-weight:700;
+}
+
+.footer p,
+.footer small{
+    color:#d6d6d6;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#0d6efd;
     border-radius:20px;
 }
 
-/* Form */
-
-.form-control{
-    height:50px;
-    border-radius:10px;
+::-webkit-scrollbar-track{
+    background:#edf3fb;
 }
 
-.btn{
-    border-radius:10px;
-    height:50px;
-}
-
-/* Footer */
-
-.footer{
-
-    background:white;
-
-    margin-top:60px;
-
-    padding:30px;
-
-    box-shadow:0 -2px 10px rgba(0,0,0,.08);
-
-}
-
-/* Responsive */
+/* ===========================
+   Responsive
+=========================== */
 
 @media(max-width:768px){
 
 .hero-icon{
-
-font-size:70px;
-
+    font-size:70px;
 }
 
 .display-4{
-
-font-size:36px;
-
+    font-size:35px;
 }
 
-}
-
-/* Login Page */
-
-.login-icon{
-
-    font-size:70px;
-
-}
-
-.form-check-input{
-
-    cursor:pointer;
-
-}
-
-a{
-
-    text-decoration:none;
-
-}
-
-a:hover{
-
-    text-decoration:underline;
-
-}
-
-.dashboard-header{
-
-    background:#0D6EFD;
-
-    color:white;
-
-    border-radius:20px;
-
-}
-
-.dashboard-card{
-
-    border:none;
-
-    border-radius:20px;
-
-    transition:.3s;
-
-}
-
-.dashboard-card:hover{
-
-    transform:translateY(-5px);
-
+.nav-link{
+    margin:5px 0;
 }
 
 .dashboard-icon{
-
-    font-size:50px;
-
-    margin-bottom:15px;
-
-}
-
-.dashboard-action{
-
-    border:none;
-
-    border-radius:20px;
-
-}
-
-.dashboard-action-icon{
-
-    font-size:70px;
-
-    color:#0D6EFD;
-
-}
-
-
-
-/*upload.css*/
-
-
-.upload-icon{
-
-    font-size:70px;
-
-    color:#0D6EFD;
-
+    font-size:45px;
 }
 
 .upload-box{
-
-    border:3px dashed #0D6EFD;
-
-    border-radius:20px;
-
-    padding:50px;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+    padding:35px;
 }
-
-.upload-box:hover{
-
-    background:#EDF5FF;
-
-}
-
-#preview{
-
-    border-radius:15px;
 
 }

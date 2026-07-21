@@ -53,9 +53,7 @@ Supports medical images such as:
 
 - Chest X-rays
 
-- Brain MRI
-- CT Scan
-- Skin Lesion Images
+- Brain MRI Images
 
 ---
 
